@@ -1,0 +1,76 @@
+<div class="container" id="main" *ngFor="let user of users">
+    <!-- <div class="container">
+      <h1> 
+        HI {{ name }}
+      </h1>
+    </div> -->
+  
+    <div class="m-3">
+      <img [src]="url" height="100px" class="rounded-circle" />
+  
+    </div>  
+    <div class="m-3">
+  
+    <input type="file" (change)="onSelectFile($event)">
+  </div>
+  
+  
+    <div *ngIf="!edit" class="container col-md-12" id="div1">
+      
+      <table class="table table-primary">
+        <tbody >
+          <tr>                
+            <th scope="row" class="text-dark">Name</th>
+            <td>{{ user.name }}</td>
+          </tr>
+  
+          <tr>
+            <th scope="row" class="text-dark">Email</th>
+            <td>{{ user.email }}</td>
+          </tr>
+  
+          <tr>
+            <th scope="row" class="text-dark">Password</th>
+            <td>{{ user.password }}</td>
+          </tr>
+  
+          <tr>
+            <th scope="row" class="text-dark">Number</th>
+            <td>{{ user.number }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" (click)="Edit()" >Edit</button>
+    </div>
+  
+    <div *ngIf="isUpdated" id="div2" class="h4 text-primary d-flex justify-content-center">Profile Updated</div>
+    <div *ngIf="edit" class="container col-md-12">
+      <table class="table table-primary">
+        <tbody>
+          <tr>
+            <th scope="row" class="text-dark">Name</th>
+            <td><input [(ngModel)]="name" ></td>
+          </tr>
+  
+          <tr>
+            <th scope="row" class="text-dark">Email</th>
+            <td><input [(ngModel)]="email"></td>
+          </tr>
+  
+          <tr>
+            <th scope="row" class="text-dark">Password</th>
+            <td><input [(ngModel)]="password"></td>
+          </tr>
+  
+          <tr>
+            <th scope="row" class="text-dark">Number</th>
+            <td><input [(ngModel)]="number"></td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" (click)="Submit()" >Submit</button>
+    </div>
+  </div>
+  
+  
+  
